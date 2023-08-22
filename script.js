@@ -55,18 +55,21 @@ function checkWin() {
 
 // Function for AI's move
 function aiMove() {
-    let emptyCells = [];
-    for (let i = 0; i < board.length; i++) {
-      if (board[i] === '') {
-        emptyCells.push(i);
+    setTimeout(() => {
+      let emptyCells = [];
+      for (let i = 0; i < board.length; i++) {
+        if (board[i] === '') {
+          emptyCells.push(i);
+        }
       }
-    }
-    const randomIndex = Math.floor(Math.random() * emptyCells.length);
-    const aiMoveIndex = emptyCells[randomIndex];
-    board[aiMoveIndex] = aiSide; // AI takes its side
-    updateBoard();
-    currentPlayer = (currentPlayer + 1) % 2; // Switch current player
+      const randomIndex = Math.floor(Math.random() * emptyCells.length);
+      const aiMoveIndex = emptyCells[randomIndex];
+      board[aiMoveIndex] = aiSide; // AI takes its side
+      updateBoard();
+      currentPlayer = (currentPlayer + 1) % 2; // Switch current player
+    }, 700); // Delay of 700 milliseconds (0.7 second)
   }
+  
   
 
 // Function to check if AI has won
