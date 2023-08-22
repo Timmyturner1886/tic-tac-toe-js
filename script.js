@@ -69,8 +69,19 @@ function aiMove() {
   }
   
 
-// Function to handle cell click
-function handleCellClick(index) {
+// Function to check if AI has won
+function aiHasWon() {
+    for (const combination of winningCombinations) {
+      const [a, b, c] = combination;
+      if (board[a] === aiSide && board[a] === board[b] && board[a] === board[c]) {
+        return true; // AI has won
+      }
+    }
+    return false; // AI has not won
+  }
+  
+  // Function to handle cell click
+  function handleCellClick(index) {
     if (playerSide === null || currentPlayer === 1) {
       return; // Exit function if AI's turn or player side not chosen
     }
@@ -78,13 +89,16 @@ function handleCellClick(index) {
     if (board[index] === '' && currentPlayer === 0 && !checkWin()) {
       board[index] = playerSide; // Player's chosen side
       updateBoard();
+  
       const winner = checkWin();
       if (winner) {
         const winnerElement = document.getElementById('winner');
         if (winner === 'tie') {
           winnerElement.textContent = "It's a tie!";
-        } else {
+        } else if (winner === playerSide) {
           winnerElement.textContent = `Player ${winner} wins!`;
+        } else if (aiHasWon()) {
+          winnerElement.textContent = "CPU wins!";
         }
       } else {
         currentPlayer = (currentPlayer + 1) % 2;
@@ -94,6 +108,7 @@ function handleCellClick(index) {
       }
     }
   }
+  
   
   // ... (rest of the code remains the same)
   
