@@ -47,12 +47,19 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 100px);
     grid-gap: 5px;
-    background-color: #ffcc80; /* Light orange background */
+    background-color: transparent; /* Transparent background for the glassy effect */
+    backdrop-filter: blur(10px); /* Glassy blur effect */
     border: 2px solid #d4a259; /* Medium orange border */
     border-radius: 10px; /* Rounded corners for the board */
     margin-top: 20px;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow around the board */
+    transition: transform 0.3s;
+  }
+  
+  /* Apply a slight scale transformation on hover to enhance the glassy effect */
+  .board:hover {
+    transform: scale(1.02);
   }
   
   /* Style individual cells */
@@ -74,6 +81,7 @@ body {
   /* Style cell hover effect */
   .cell:hover {
     background-color: #ffd699; /* Slightly darker brown cell background on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Glow effect on cell hover */
   }
   
   /* Adjust borders for rows and columns */
