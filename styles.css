@@ -102,6 +102,32 @@ body {
     transform: translateY(-2px); /* Slight upward movement on hover */
   }
 
+  /* Style the side selection buttons */
+.choose-side {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#chooseX,
+#chooseO {
+  background-color: #FFB347; /* Playful orange color */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#chooseX:hover,
+#chooseO:hover {
+  background-color: #FFA630; /* Lighter shade on hover */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
   /* Style the winner message */
 #winner {
   font-size: 24px;

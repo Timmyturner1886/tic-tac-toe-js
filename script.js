@@ -10,6 +10,28 @@ const winningCombinations = [
   [0, 4, 8], [2, 4, 6]           // Diagonals
 ];
 
+// Variables to track player side selection
+let playerSide = null; // Will be 'X' or 'O'
+
+// Function to handle player side selection
+function handleSideSelection(side) {
+  playerSide = side;
+  document.querySelector('.choose-side').style.display = 'none'; // Hide the side selection
+  document.querySelector('.board').style.display = 'grid'; // Show the board
+}
+
+// Add click event listeners to side selection buttons
+const chooseXButton = document.getElementById('chooseX');
+const chooseOButton = document.getElementById('chooseO');
+
+chooseXButton.addEventListener('click', () => {
+  handleSideSelection('X');
+});
+
+chooseOButton.addEventListener('click', () => {
+  handleSideSelection('O');
+});
+
 // Function to check if the game is won
 function checkWin() {
   for (const combination of winningCombinations) {
@@ -26,6 +48,11 @@ function checkWin() {
 
 // Function to handle cell click or touch
 function handleCellInteraction(index) {
+  // Check if player has chosen a side
+  if (!playerSide) {
+    return;
+  }
+
   if (board[index] === '' && !checkWin()) {
     board[index] = players[currentPlayer];
     updateBoard();
