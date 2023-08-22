@@ -10,6 +10,14 @@ body {
     position: relative;
     overflow: hidden;
   }
+
+  .title {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 36px;
+    color: #FF6B6B;
+    text-align: center;
+    margin-bottom: 20px;
+  }
   
   /* Create a radial gradient background for a playful feel */
   .background {
@@ -64,6 +72,7 @@ body {
   
   /* Style individual cells */
   .cell {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,6 +139,7 @@ body {
 
   /* Style the winner message */
 #winner {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 24px;
   margin-top: 20px;
   text-align: center;
