@@ -81,7 +81,7 @@ function aiHasWon() {
   }
   
   // Function to handle cell click
-  function handleCellClick(index) {
+function handleCellClick(index) {
     if (playerSide === null || currentPlayer === 1) {
       return; // Exit function if AI's turn or player side not chosen
     }
@@ -98,7 +98,7 @@ function aiHasWon() {
         } else if (winner === playerSide) {
           winnerElement.textContent = `Player ${winner} wins!`;
         } else if (aiHasWon()) {
-          winnerElement.textContent = "CPU wins!";
+          winnerElement.textContent = "You Lost!";
         }
       } else {
         currentPlayer = (currentPlayer + 1) % 2;
@@ -108,6 +108,7 @@ function aiHasWon() {
       }
     }
   }
+  
   
   
   // ... (rest of the code remains the same)
