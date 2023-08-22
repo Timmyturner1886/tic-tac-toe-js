@@ -26,7 +26,7 @@ body {
   /* Style the container that holds the title and game board */
   .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background for glassy effect */
+    background-color: transparent; /* Transparent background for the glassy effect */
     border: 2px solid rgba(255, 255, 255, 0.7); /* Light border color */
     border-radius: 15px; /* Rounded corners */
     padding: 20px;
@@ -39,7 +39,7 @@ body {
   h1 {
     font-size: 36px;
     margin-top: 20px;
-    color: #ff6f61; /* Bright orange title color */
+    color: #8b5a2b; /* Brown title color */
     text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow effect for the title */
   }
   
