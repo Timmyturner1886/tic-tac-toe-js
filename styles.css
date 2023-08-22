@@ -83,6 +83,32 @@ body {
     background-color: #ffd699; /* Slightly darker brown cell background on hover */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Glow effect on cell hover */
   }
+
+  #restartButton {
+    background-color: #FFB347; /* Playful orange color */
+    color: white;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  #restartButton:hover {
+    background-color: #FFA630; /* Lighter shade on hover */
+    transform: translateY(-2px); /* Slight upward movement on hover */
+  }
+
+  /* Style the winner message */
+#winner {
+  font-size: 24px;
+  margin-top: 20px;
+  text-align: center;
+  color: #654321; /* Brown color */
+}
   
   /* Adjust borders for rows and columns */
   .cell:nth-child(3n) {
