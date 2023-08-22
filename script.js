@@ -24,8 +24,8 @@ function checkWin() {
   return null; // Return null if the game is ongoing
 }
 
-// Function to handle cell click
-function handleCellClick(index) {
+// Function to handle cell click or touch
+function handleCellInteraction(index) {
   if (board[index] === '' && !checkWin()) {
     board[index] = players[currentPlayer];
     updateBoard();
@@ -51,11 +51,15 @@ function updateBoard() {
   });
 }
 
-// Add click event listeners to cells
+// Add event listeners to cells for both click and touch events
 const cells = document.querySelectorAll('.cell');
 cells.forEach((cell, index) => {
   cell.addEventListener('click', () => {
-    handleCellClick(index);
+    handleCellInteraction(index);
+  });
+  cell.addEventListener('touchstart', (event) => {
+    event.preventDefault(); // Prevent touch from scrolling
+    handleCellInteraction(index);
   });
 });
 
