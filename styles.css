@@ -26,12 +26,13 @@ body {
   /* Style the container that holds the title and game board */
   .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    border: 2px solid #ffcc80; /* Light orange border */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow around the container */
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background for glassy effect */
+    border: 2px solid rgba(255, 255, 255, 0.7); /* Light border color */
     border-radius: 15px; /* Rounded corners */
     padding: 20px;
     max-width: 400px;
+    backdrop-filter: blur(10px); /* Frosty glassy effect */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow around the container */
   }
   
   /* Style the game title */
@@ -48,7 +49,6 @@ body {
     grid-template-columns: repeat(3, 100px);
     grid-gap: 5px;
     background-color: transparent; /* Transparent background for the glassy effect */
-    backdrop-filter: blur(10px); /* Glassy blur effect */
     border: 2px solid #d4a259; /* Medium orange border */
     border-radius: 10px; /* Rounded corners for the board */
     margin-top: 20px;
