@@ -1,0 +1,87 @@
+/* Set up the basic styling for the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #ffeecc; /* Soft yellow background */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Create a radial gradient background for a playful feel */
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(#fff8e0, #ffeecc); /* Gradient from light yellow to darker yellow */
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  
+  /* Style the container that holds the title and game board */
+  .container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    border: 2px solid #ffcc80; /* Light orange border */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow around the container */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px;
+    max-width: 400px;
+  }
+  
+  /* Style the game title */
+  h1 {
+    font-size: 36px;
+    margin-top: 20px;
+    color: #ff6f61; /* Bright orange title color */
+    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow effect for the title */
+  }
+  
+  /* Style the game board */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    background-color: #ffcc80; /* Light orange background */
+    border: 2px solid #d4a259; /* Medium orange border */
+    border-radius: 10px; /* Rounded corners for the board */
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow around the board */
+  }
+  
+  /* Style individual cells */
+  .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #d4a259; /* Medium orange border */
+    width: 100px;
+    height: 100px;
+    background-color: #f2c68e; /* Light brown cell background */
+    transition: background-color 0.3s;
+    user-select: none;
+  }
+  
+  /* Style cell hover effect */
+  .cell:hover {
+    background-color: #ffd699; /* Slightly darker brown cell background on hover */
+  }
+  
+  /* Adjust borders for rows and columns */
+  .cell:nth-child(3n) {
+    border-right: 2px solid #d4a259; /* Medium orange border on the right of every third cell */
+  }
+  
+  .cell:nth-child(n+7) {
+    border-bottom: 2px solid #d4a259; /* Medium orange border at the bottom of the last three rows */
+  }
+  
