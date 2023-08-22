@@ -12,13 +12,20 @@ const winningCombinations = [
 
 // Variables to track player side selection
 let playerSide = null; // Will be 'X' or 'O'
+let aiSide = null; // Will be the opposite side of player
 
 // Function to handle player side selection
 function handleSideSelection(side) {
-  playerSide = side;
-  document.querySelector('.choose-side').style.display = 'none'; // Hide the side selection
-  document.querySelector('.board').style.display = 'grid'; // Show the board
-}
+    playerSide = side;
+    aiSide = (playerSide === 'X') ? 'O' : 'X'; // Determine AI's side
+    document.querySelector('.choose-side').style.display = 'none'; // Hide the side selection
+    document.querySelector('.board').style.display = 'grid'; // Show the board
+    currentPlayer = (playerSide === 'X') ? 0 : 1; // Set current player
+    if (aiSide === 'X') {
+      aiMove(); // AI starts if AI's side is 'X'
+    }
+  }
+  
 
 // Add click event listeners to side selection buttons
 const chooseXButton = document.getElementById('chooseX');
@@ -34,42 +41,62 @@ chooseOButton.addEventListener('click', () => {
 
 // Function to check if the game is won
 function checkWin() {
-  for (const combination of winningCombinations) {
-    const [a, b, c] = combination;
-    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-      return board[a]; // Return the winner (X or O)
-    }
-  }
-  if (board.every(cell => cell !== '')) {
-    return 'tie'; // Return 'tie' if the board is full and no winner
-  }
-  return null; // Return null if the game is ongoing
-}
-
-// Function to handle cell click or touch
-function handleCellInteraction(index) {
-  // Check if player has chosen a side
-  if (!playerSide) {
-    return;
-  }
-
-  if (board[index] === '' && !checkWin()) {
-    board[index] = players[currentPlayer];
-    updateBoard();
-    const winner = checkWin();
-    if (winner) {
-      const winnerElement = document.getElementById('winner');
-      if (winner === 'tie') {
-        winnerElement.textContent = "It's a tie!";
-      } else {
-        winnerElement.textContent = `Player ${winner} wins!`;
+    for (const combination of winningCombinations) {
+      const [a, b, c] = combination;
+      if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+        return board[a]; // Return the winner (X or O)
       }
-    } else {
-      currentPlayer = (currentPlayer + 1) % 2;
+    }
+    if (board.every(cell => cell !== '')) {
+      return 'tie'; // Return 'tie' if the board is full and no winner
+    }
+    return null; // Return null if the game is ongoing
+  }
+
+// Function for AI's move
+function aiMove() {
+    let emptyCells = [];
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] === '') {
+        emptyCells.push(i);
+      }
+    }
+    const randomIndex = Math.floor(Math.random() * emptyCells.length);
+    const aiMoveIndex = emptyCells[randomIndex];
+    board[aiMoveIndex] = aiSide; // AI takes its side
+    updateBoard();
+    currentPlayer = (currentPlayer + 1) % 2; // Switch current player
+  }
+  
+
+// Function to handle cell click
+function handleCellClick(index) {
+    if (playerSide === null || currentPlayer === 1) {
+      return; // Exit function if AI's turn or player side not chosen
+    }
+  
+    if (board[index] === '' && currentPlayer === 0 && !checkWin()) {
+      board[index] = playerSide; // Player's chosen side
+      updateBoard();
+      const winner = checkWin();
+      if (winner) {
+        const winnerElement = document.getElementById('winner');
+        if (winner === 'tie') {
+          winnerElement.textContent = "It's a tie!";
+        } else {
+          winnerElement.textContent = `Player ${winner} wins!`;
+        }
+      } else {
+        currentPlayer = (currentPlayer + 1) % 2;
+        if (currentPlayer === 1) {
+          aiMove(); // AI's turn
+        }
+      }
     }
   }
-}
-
+  
+  // ... (rest of the code remains the same)
+  
 // Function to update the board in the DOM
 function updateBoard() {
   const cells = document.querySelectorAll('.cell');
@@ -78,15 +105,11 @@ function updateBoard() {
   });
 }
 
-// Add event listeners to cells for both click and touch events
+// Add event listeners to cells for click events
 const cells = document.querySelectorAll('.cell');
 cells.forEach((cell, index) => {
   cell.addEventListener('click', () => {
-    handleCellInteraction(index);
-  });
-  cell.addEventListener('touchstart', (event) => {
-    event.preventDefault(); // Prevent touch from scrolling
-    handleCellInteraction(index);
+    handleCellClick(index);
   });
 });
 
