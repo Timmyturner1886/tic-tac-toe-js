@@ -1,174 +1,173 @@
 /* Set up the basic styling for the page */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #ffeecc; /* Soft yellow background */
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    position: relative;
-    overflow: hidden;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #ffeecc; /* Soft yellow background */
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
 
-  .title {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 36px;
-    color: #FF6B6B;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Create a radial gradient background for a playful feel */
-  .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(#fff8e0, #ffeecc); /* Gradient from light yellow to darker yellow */
-    opacity: 0.8;
-    pointer-events: none;
-  }
-  
-  /* Style the container that holds the title and game board */
-  .container {
-    text-align: center;
-    background-color: transparent; /* Transparent background for the glassy effect */
-    border: 2px solid rgba(255, 255, 255, 0.7); /* Light border color */
-    border-radius: 15px; /* Rounded corners */
-    padding: 20px;
-    max-width: 400px;
-    backdrop-filter: blur(10px); /* Frosty glassy effect */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow around the container */
-  }
-  
-  /* Style the game title */
-  h1 {
-    font-size: 36px;
-    margin-top: 20px;
-    color: #8b5a2b; /* Brown title color */
-    text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow effect for the title */
-  }
-  
-  /* Style the game board */
-  .board {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-gap: 5px;
-    background-color: transparent; /* Transparent background for the glassy effect */
-    border: 2px solid #d4a259; /* Medium orange border */
-    border-radius: 10px; /* Rounded corners for the board */
-    margin-top: 20px;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow around the board */
-    transition: transform 0.3s;
-  }
-  
-  /* Apply a slight scale transformation on hover to enhance the glassy effect */
-  .board:hover {
-    transform: scale(1.02);
-  }
-  
-  /* Style individual cells */
-  .cell {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid #d4a259; /* Medium orange border */
-    width: 100px;
-    height: 100px;
-    background-color: #f2c68e; /* Light brown cell background */
-    transition: background-color 0.3s;
-    user-select: none;
-  }
-  
-  /* Style cell hover effect */
-  .cell:hover {
-    background-color: #ffd699; /* Slightly darker brown cell background on hover */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Glow effect on cell hover */
-  }
-
-  #restartButton {
-    background-color: #FFB347; /* Playful orange color */
-    color: white;
-    margin-top: 20px;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  #restartButton:hover {
-    background-color: #FFA630; /* Lighter shade on hover */
-    transform: translateY(-2px); /* Slight upward movement on hover */
-  }
-
-  /* Style the side selection buttons */
-.choose-side {
+.title {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-size: 36px;
+  color: #FF6B6B;
   text-align: center;
   margin-bottom: 20px;
 }
 
-#chooseX,
-#chooseO {
+/* Create a radial gradient background for a playful feel */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(#fff8e0, #ffeecc); /* Gradient from light yellow to darker yellow */
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Style the container that holds the title and game board */
+.container {
+  text-align: center;
+  background-color: transparent; /* Transparent background for the glassy effect */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Light border color */
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px;
+  max-width: 400px;
+  backdrop-filter: blur(10px); /* Frosty glassy effect */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow around the container */
+}
+
+/* Style the game title */
+h1 {
+  font-size: 36px;
+  margin-top: 20px;
+  color: #8b5a2b; /* Brown title color */
+  text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow effect for the title */
+}
+
+/* Style the game board */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 5px;
+  background-color: transparent; /* Transparent background for the glassy effect */
+  border: 2px solid #d4a259; /* Medium orange border */
+  border-radius: 10px; /* Rounded corners for the board */
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow around the board */
+  transition: transform 0.3s;
+}
+
+/* Apply a slight scale transformation on hover to enhance the glassy effect */
+.board:hover {
+  transform: scale(1.02);
+}
+
+/* Style individual cells */
+.cell {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid #d4a259; /* Medium orange border */
+  width: 100px;
+  height: 100px;
+  background-color: #f2c68e; /* Light brown cell background */
+  transition: background-color 0.3s;
+  user-select: none;
+}
+
+/* Style cell hover effect */
+.cell:hover {
+  background-color: #ffd699; /* Slightly darker brown cell background on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Glow effect on cell hover */
+}
+
+#restartButton {
   background-color: #FFB347; /* Playful orange color */
   color: white;
+  margin-top: 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 8px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  margin: 5px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, transform 0.2s;
 }
 
-#chooseX:hover,
-#chooseO:hover {
+#restartButton:hover {
   background-color: #FFA630; /* Lighter shade on hover */
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: translateY(-2px); /* Slight upward movement on hover */
 }
 
-  /* Style the winner message */
-#winner {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-size: 24px;
-  margin-top: 20px;
-  text-align: center;
-  color: #654321; /* Brown color */
+/* Style the side selection buttons */
+.choose-side {
+text-align: center;
+margin-bottom: 20px;
 }
-  
-  /* Adjust borders for rows and columns */
-  .cell:nth-child(3n) {
-    border-right: 2px solid #d4a259; /* Medium orange border on the right of every third cell */
-  }
-  
-  .cell:nth-child(n+7) {
-    border-bottom: 2px solid #d4a259; /* Medium orange border at the bottom of the last three rows */
-  }
+
+#chooseX,
+#chooseO {
+background-color: #FFB347; /* Playful orange color */
+color: white;
+border: none;
+border-radius: 20px;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+margin: 5px;
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+transition: background-color 0.3s, transform 0.2s;
+}
+
+#chooseX:hover,
+#chooseO:hover {
+background-color: #FFA630; /* Lighter shade on hover */
+transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Style the winner message */
+#winner {
+font-family: 'Comic Sans MS', cursive, sans-serif;
+font-size: 24px;
+margin-top: 20px;
+text-align: center;
+color: #654321; /* Brown color */
+}
+
+/* Adjust borders for rows and columns */
+.cell:nth-child(3n) {
+  border-right: 2px solid #d4a259; /* Medium orange border on the right of every third cell */
+}
+
+.cell:nth-child(n+7) {
+  border-bottom: 2px solid #d4a259; /* Medium orange border at the bottom of the last three rows */
+}
 
 
 .attribution {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 12px;
-  color: #999;
+text-align: center;
+margin-top: 20px;
+font-size: 12px;
+color: #999;
 }
 
 .author {
-  font-weight: bold;
+font-weight: bold;
 }
 
 .version {
-  font-style: italic;
+font-style: italic;
 }
 
-  
