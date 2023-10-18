@@ -53,7 +53,6 @@ function checkWin() {
 }
 
 // Function for AI's move
-// Function for AI's move
 function aiMove() {
   setTimeout(() => {
     const bestMove = findBestMove(board);
@@ -85,7 +84,6 @@ function aiHasWon() {
   return false; // AI has not won
 }
 
-// Function to handle cell click
 // Function to handle cell click
 function handleCellClick(index) {
   if (playerSide === null || currentPlayer === 1) {
