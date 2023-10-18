@@ -1,4 +1,4 @@
-// Add these lines at the beginning of your script
+
 const loadingOverlay = document.getElementById('loadingOverlay');
 loadingOverlay.style.display = 'flex'; // Show the loading overlay
 
@@ -45,6 +45,15 @@ chooseXButton.addEventListener('click', () => {
 chooseOButton.addEventListener('click', () => {
   handleSideSelection('O');
 });
+
+chooseXButton.addEventListener('touchstart', () => {
+  handleSideSelection('X');
+});
+
+chooseOButton.addEventListener('touchstart', () => {
+  handleSideSelection('O');
+});
+
 
 // Function to check if the game is won
 function checkWin() {
@@ -195,6 +204,9 @@ function minimax(board, depth, isMaximizing) {
 const cells = document.querySelectorAll('.cell');
 cells.forEach((cell, index) => {
   cell.addEventListener('click', () => {
+    handleCellClick(index);
+  });
+  cell.addEventListener('touchstart', () => {
     handleCellClick(index);
   });
 });
