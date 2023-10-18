@@ -1,3 +1,7 @@
+// Add these lines at the beginning of your script
+const loadingOverlay = document.getElementById('loadingOverlay');
+loadingOverlay.style.display = 'flex'; // Show the loading overlay
+
 // Define the players and the current player
 const players = ['X', 'O'];
 let currentPlayer = 0;
@@ -13,6 +17,10 @@ const winningCombinations = [
 // Variables to track player side selection
 let playerSide = null; // Will be 'X' or 'O'
 let aiSide = null; // Will be the opposite side of the player
+
+const winnerElement = document.getElementById('winner');
+winnerElement.classList.add('show');
+
 
 // Function to handle player side selection
 function handleSideSelection(side) {
@@ -62,7 +70,7 @@ function aiMove() {
     if (winner) {
       const winnerElement = document.getElementById('winner');
       if (winner === aiSide) {
-        winnerElement.textContent = "You Lost!";
+        winnerElement.textContent = 'You Lost!';
       } else if (winner === 'tie') {
         winnerElement.textContent = "It's a tie!";
       } else {
@@ -100,7 +108,7 @@ function handleCellClick(index) {
       const winnerElement = document.getElementById('winner');
       console.log('AI Has Won:', aiHasWon()); // Log the result of aiHasWon()
       if (aiHasWon()) {
-        winnerElement.textContent = "You Lost!";
+        winnerElement.textContent = 'You Lost!';
       } else if (winner === 'tie') {
         winnerElement.textContent = "It's a tie!";
       } else if (winner === playerSide) {
@@ -115,16 +123,17 @@ function handleCellClick(index) {
   }
 }
 
-
-
-
-
 // Function to update the board in the DOM
 function updateBoard() {
   const cells = document.querySelectorAll('.cell');
   cells.forEach((cell, index) => {
     cell.textContent = board[index];
   });
+
+  // Hide the loading overlay after the board is updated, with a 1-second delay
+  setTimeout(() => {
+    loadingOverlay.style.display = 'none'; // Hide the loading overlay
+  }, 1000); // Delay for one second (1000 milliseconds)
 }
 
 // Find the best move using Minimax
@@ -198,3 +207,4 @@ restartButton.addEventListener('click', () => {
 
 // Initialize the board in the DOM
 updateBoard();
+

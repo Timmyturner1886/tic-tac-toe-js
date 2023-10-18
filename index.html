@@ -7,6 +7,12 @@
   <title>Tic Tac Toe</title>
 </head>
 <body>
+  <div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-screen">
+    <div class="loader"></div>
+    <p>Loading...</p>
+  </div>
+</div>
   <div class="background"></div>
   <div class="container">
     <h1>Tic Tac Toe</h1>
@@ -26,7 +32,8 @@
       <div class="cell"></div>
       <div class="cell"></div>
     </div>
-    <div id="winner"></div>
+    <div id="winner" class="show"></div>
+
     <button id="restartButton">Restart Game</button>
     <div class="attribution">
       <p>Powered by <span class="author">Tim</span> | Version <span class="version">v1.1</span></p>
